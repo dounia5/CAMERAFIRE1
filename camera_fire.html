@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Webcam Stream</title>
+</head>
+<body>
+  <h1>Webcam Stream</h1>
+  <video id="webcam-stream" autoplay></video>
+  <script>
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(function(stream) {
+        var videoElement = document.getElementById('webcam-stream');
+        videoElement.srcObject = stream;
+      })
+      .catch(function(error) {
+        console.error('Error accessing webcam:', error);
+      });
+  </script>
+</body>
+</html>
